@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bird Call Classification</title>
+  </head>
+  <body>
+    <!-- We will put our React component inside this div. -->
+    <div id="bird_container">
+        <h1 id="bird_name"></h1>
+        <br/>
+        <img id="bird_image" src="" alt="" width="600px"/>
+        <br/>
+        <p id="bird_text"></p>
+    </div>
+
+    <script>
+        const birds = {
+            NFP: {
+                name: 'Nilgiri Flowerpecker',
+                image: '\\backend\\birds\\nfp.jpg',
+                link: 'https://ebird.org/species/plaflo1/'
+            },
+            CBS: {
+                name: 'Crimson-backed Sunbird',
+                image: '\\backend\\birds\\cbs.jpg',
+                link: 'https://ebird.org/species/crbsun2/'
+            },
+            ISB: {
+                name: 'Indian Scimitar Babbler',
+                image: '\\backend\\birds\\isb.jpg',
+                link: 'https://ebird.org/species/insbab1/'
+            },
+            WCB: {
+                name: 'White-cheeked Barbet',
+                image: '\\backend\\birds\\wcb.jpg',
+                link: 'https://ebird.org/species/whcbar1/'
+            },
+            RWB: {
+                name: 'Red-whiskered Bulbul',
+                image: '\\backend\\birds\\rwb.jpg',
+                link: 'https://ebird.org/species/rewbul/'
+            }
+        }
+        
+        const code = document.URL.replace(/\/$/,'').slice(-3)
+        const bird = birds[code];
+
+        let bird_name = document.getElementById("bird_name")
+        let bird_image = document.getElementById("bird_image")
+        let bird_text = document.getElementById("bird_text")
+
+        bird_name.innerText = bird.name
+        bird_image.src = bird.image
+        bird_image.alt = bird.name
+        bird_text.innerHTML = "For more information on " + bird.name +  ", click <a target='_blank' href=" + bird.link + ">here</a>"
+    </script>
+
+  </body>
+</html>
